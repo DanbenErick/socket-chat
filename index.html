@@ -6,23 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .msg {
+            width: 40%;
+            background: gray;
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Socket</h1>
     <button id="boton">enviar mensaje</button>
     <script type="module">
+
+
         import { io, Manager } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
         window.addEventListener('DOMContentLoaded', (event) => {
 
             const socket = io("https://socket-chat-production-ef4b.up.railway.app");
             socket.on('chat', (data) => {
                 console.log(data)
+                document.body.innerHTML += `<div class="msg">
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, ullam ipsa. Laboriosam dolorum dicta eaque iure beatae illo nulla pariatur commodi? Saepe expedita dolores quae, labore accusamus architecto. Dicta, ex.</p>
+</div>`
             })
-            boton.addEventListener('click', function() {
-                    const msg = prompt("escribe un mensaje")
-                    socket.emit('chat', msg)
-                
+            boton.addEventListener('click', function () {
+                const msg = prompt("escribe un mensaje")
+                socket.emit('chat', msg)
+
             })
             // const manager = new Manager('http://localhost:9000')
             // const socket = manager.socket("/chat", 'Msg');
