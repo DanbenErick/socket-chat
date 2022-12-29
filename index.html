@@ -15,14 +15,11 @@
         import { io, Manager } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
         window.addEventListener('DOMContentLoaded', (event) => {
 
-            const socket = io("http://localhost:9000");
+            const socket = io("https://socket-chat-production-ef4b.up.railway.app");
             socket.on('chat', (data) => {
                 console.log(data)
-                
             })
             boton.addEventListener('click', function() {
-
-                
                     const msg = prompt("escribe un mensaje")
                     socket.emit('chat', msg)
                 
