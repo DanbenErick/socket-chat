@@ -31,7 +31,7 @@
             socket.on('chat', (data) => {
                 console.log(data)
                 document.body.innerHTML += `<div class="msg">
-  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum, ullam ipsa. Laboriosam dolorum dicta eaque iure beatae illo nulla pariatur commodi? Saepe expedita dolores quae, labore accusamus architecto. Dicta, ex.</p>
+  <p>${data}</p>
 </div>`
             })
             boton.addEventListener('click', function () {
